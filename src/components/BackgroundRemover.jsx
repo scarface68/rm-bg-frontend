@@ -52,6 +52,7 @@ const BackgroundRemover = () => {
         justifyContent: "center",
         alignItems: "center",
         margin: "20px",
+        color: "white", // BEGIN: Change text color to white
       }}
     >
       <div>
@@ -59,7 +60,7 @@ const BackgroundRemover = () => {
 
         <div style={{ display: "flex" }}>
           <div style={{ margin: "50px" }}>
-            <h2>Original Image</h2>
+            <h2 style={{ color: "white" }}>Original Image</h2>
 
             {originalImagePreview && (
               <div>
@@ -73,7 +74,7 @@ const BackgroundRemover = () => {
           </div>
 
           <div style={{ margin: "50px" }}>
-            <h2>Processed Image</h2>
+            <h2 style={{ color: "white" }}>Processed Image</h2>
             {processedImage && (
               <div>
                 <img
@@ -84,8 +85,12 @@ const BackgroundRemover = () => {
               </div>
             )}
             {downloadUrl && (
-              <div style={{padding:'20px'}}>
-                <a href={downloadUrl} download="processed_image.png">
+              <div style={{ padding: "20px" }}>
+                <a
+                  href={downloadUrl}
+                  download="processed_image.png"
+                  style={{ color: "white" }}
+                >
                   Download Processed Image
                 </a>
               </div>

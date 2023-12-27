@@ -8,8 +8,8 @@ const Header = () => {
         justifyContent: "center",
         direction: "column",
         alignItems: "center",
-        backgroundColor: "cyan",
-        color: "white",
+        backgroundColor: "#FFFF00",
+        color: "#121212",
         width: "100%",
         height: "100px", // Increase the height to 100 pixels
       }}
