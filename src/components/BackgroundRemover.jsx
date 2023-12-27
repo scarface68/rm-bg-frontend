@@ -56,7 +56,9 @@ const BackgroundRemover = () => {
       }}
     >
       <div>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
+        <div style={{ display: "flex", justifyContent: "center", margin: '20px' }}>
+          <input type="file" accept="image/*" onChange={handleImageUpload} />
+        </div>
 
         <div style={{ display: "flex" }}>
           <div style={{ margin: "50px" }}>
