@@ -32,7 +32,7 @@ const BackgroundRemover = () => {
     const formData = new FormData();
     formData.append("image_file", selectedImage);
     axios
-      .post("http://localhost:5000/remove", formData, {
+      .post("https://removebgapiscarface68.onrender.com/remove", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
