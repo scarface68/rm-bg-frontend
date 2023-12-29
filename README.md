@@ -1,5 +1,7 @@
 # React + Vite
 
+Backend for this project - https://github.com/scarface68/rm-bg-nodejs
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
