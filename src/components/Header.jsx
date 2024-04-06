@@ -5,8 +5,8 @@ const Header = () => {
     <header
       style={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
-        direction: "column",
         alignItems: "center",
         backgroundColor: "#FFFF00",
         color: "#121212",
@@ -15,6 +15,7 @@ const Header = () => {
       }}
     >
       <h1>Remove Background tool</h1>
+      <p style={{ fontSize: "12px", opacity: 0.8 }}>If it takes long time refresh page and try again</p>
     </header>
   );
 };
