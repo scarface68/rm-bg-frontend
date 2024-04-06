@@ -5,6 +5,7 @@ const BackgroundRemover = () => {
   const [originalImagePreview, setOriginalImagePreview] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
   const [downloadUrl, setDownloadUrl] = useState(null);
+  const [spinner, setSpinner] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
@@ -14,6 +15,7 @@ const BackgroundRemover = () => {
         .then((blob) => {
           const url = URL.createObjectURL(blob);
           setDownloadUrl(url);
+          setSpinner(false);
         });
     }
   }, [processedImage]);
@@ -29,6 +31,7 @@ const BackgroundRemover = () => {
   };
 
   const handleSubmit = () => {
+    setSpinner(true);
     const formData = new FormData();
     formData.append("image_file", selectedImage);
     axios
@@ -55,8 +58,10 @@ const BackgroundRemover = () => {
         color: "white", // BEGIN: Change text color to white
       }}
     >
-      <div>
-        <div style={{ display: "flex", justifyContent: "center", margin: '20px' }}>
+      <div style={{ textAlign: "center" }}>
+        <div
+          style={{ display: "flex", justifyContent: "center", margin: "20px" }}
+        >
           <input type="file" accept="image/*" onChange={handleImageUpload} />
         </div>
 
@@ -87,20 +92,29 @@ const BackgroundRemover = () => {
               </div>
             )}
             {downloadUrl && (
-              <div style={{ padding: "20px" }}>
+              <div>
                 <a
                   href={downloadUrl}
                   download="processed_image.png"
                   style={{ color: "white" }}
+                  title="Download Image"
                 >
-                  Download Processed Image
+                  <img
+                    src="download.png"
+                    style={{ width: "30px", height: "30px" }}
+                  />
                 </a>
               </div>
             )}
+            {spinner && <div id="loading"></div>}
           </div>
         </div>
 
-        <button onClick={handleSubmit}>Remove bg</button>
+        {downloadUrl ? (
+          <button onClick={() => window.location.reload()}>Clear</button>
+        ) : (
+          <button onClick={handleSubmit}>Remove bg</button>
+        )}
       </div>
     </div>
   );
